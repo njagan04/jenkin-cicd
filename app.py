@@ -11,3 +11,6 @@ with open(FILE_PATH, "a") as f:
 with open(FILE_PATH, "r") as f:
     print("File contents:\n")
     print(f.read())
+
+
+print("Script execution completed.")
