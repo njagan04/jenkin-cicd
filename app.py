@@ -14,3 +14,5 @@ with open(FILE_PATH, "r") as f:
 
 
 print("Script execution completed.")
+print("Script execution completed.")
+print("Script execution completed.")

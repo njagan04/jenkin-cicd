@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "myusername/myapp"
-        DOCKER_TAG = "${env.GIT_COMMIT.take(7)}"    }
+        DOCKER_IMAGE = "njagan04/jenkins-cici-repo"
+        DOCKER_TAG = "${env.GIT_COMMIT?.take(7) ?: 'latest'}"
+    }
 
     triggers {
         githubPush()
@@ -29,6 +30,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+
                         dockerImage.push()
                         dockerImage.push("latest")
                     }
