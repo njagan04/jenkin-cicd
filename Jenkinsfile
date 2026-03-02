@@ -3,8 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "myusername/myapp"
-        DOCKER_TAG = "${BUILD_NUMBER}"
-    }
+        DOCKER_TAG = "${env.GIT_COMMIT.take(7)}"    }
 
     triggers {
         githubPush()
